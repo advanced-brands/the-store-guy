@@ -17,3 +17,18 @@ counters.forEach(counter => {
 
     updateCount();
 });
+
+// show portfolio link when user scrolls to bottom
+const portfolioLink = document.getElementById('portfolio-link');
+
+function checkScroll() {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 5) {
+        portfolioLink.classList.add('visible');
+    } else {
+        portfolioLink.classList.remove('visible');
+    }
+}
+
+window.addEventListener('scroll', checkScroll);
+// run once in case page already at bottom on load
+checkScroll();

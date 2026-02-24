@@ -121,6 +121,19 @@ body {
     padding: 18px 40px;
 }
 
+/* hero image link */
+.hero-image-link img {
+    max-width: 280px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.hero-image-link {
+    display: inline-block;
+}
+
+
 /* STATS */
 .stats {
     margin-top: 25px;
@@ -143,19 +156,98 @@ body {
     font-weight: 600;
 }
 
+/* bottom-centered link shown at page bottom */
+.bottom-link {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* plain text link, no button styling */
+    color: white;
+    text-decoration: underline;
+    font-weight: 600;
+    display: none; /* hidden until scrolled to bottom */
+    z-index: 900;
+}
+
+.bottom-link.visible {
+    display: inline;
+}
+
+/* footer styling - separate from floating elements */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+    background: rgba(0,0,0,0.2); /* slight overlay to differentiate */
+    color: white;
+    z-index: 800;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer a {
+    color: #00D1B2;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
 
     .navbar {
         padding: 20px 5%;
+        /* keep row layout like desktop */
     }
 
     .nav-links {
-        display: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px; /* smaller gap than desktop */
+    }
+
+    .nav-links a {
+        margin: 0;
+        font-size: 0.9rem; /* slightly smaller text to fit */
     }
 
     .floating-container {
         padding: 40px 20px;
+    }
+
+    /* on mobile, keep cards in a horizontal row with scrolling */
+    .grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 20px;
+        overflow-x: auto;
+        padding-bottom: 10px; /* give room for scrollbar */
+    }
+
+    .card {
+        min-width: 180px;
+        flex: 0 0 auto;
+        padding: 18px;
+    }
+
+    .card h3 {
+        font-size: 1rem;
+    }
+
+    .card p {
+        font-size: 0.9rem;
     }
 
     .hero h1 {
@@ -169,5 +261,14 @@ body {
     .stats {
         flex-direction: column;
         gap: 10px;
+    }
+
+    /* make space between footer content and the floating WhatsApp on small screens */
+    .whatsapp {
+        bottom: 60px; /* lift button above footer */
+    }
+
+    .footer {
+        padding-bottom: 60px; /* ensure footer link isn't flush with edge */
     }
 }
