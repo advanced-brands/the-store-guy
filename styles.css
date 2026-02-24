@@ -231,23 +231,24 @@ body {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        gap: 20px;
+        gap: 10px;
         overflow-x: auto;
         padding-bottom: 10px; /* give room for scrollbar */
     }
 
     .card {
-        min-width: 180px;
+        max-width: 90px;
         flex: 0 0 auto;
         padding: 18px;
+        max-height: 140px;
     }
 
     .card h3 {
-        font-size: 1rem;
+        font-size: 0.7rem;
     }
 
     .card p {
-        font-size: 0.9rem;
+        font-size: 0.6rem;
     }
 
     .hero h1 {
