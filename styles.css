@@ -24,7 +24,8 @@ body {
     justify-content: space-between;
     align-items: center;
 
-    background: rgba(255, 255, 255, 0.08);
+    /* match body gradient but with transparency so background shows through */
+    background: rgba(11,28,45,0.75);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 
@@ -35,11 +36,13 @@ body {
     z-index: 1000;
 }
 
+.logo img {
+    max-height: 40px;
+    display: block;
+}
+
 .logo {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: white;
-    font-size: 1.2rem;
+    /* container could have padding or size if needed */
 }
 
 .nav-links a {
@@ -123,7 +126,7 @@ body {
 
 /* hero image link */
 .hero-image-link img {
-    max-width: 280px;
+    min-width: 250px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -131,6 +134,21 @@ body {
 
 .hero-image-link {
     display: inline-block;
+}
+
+/* animated arrow pointing at WhatsApp button */
+.whatsapp-arrow {
+    font-size: 10.5rem;
+    display: inline-block;
+    color: #0B1C2D;
+    animation: arrow-bounce 1s infinite alternate;
+    margin-top: 0px;
+}
+
+@keyframes arrow-bounce {
+    /* no rotation, arrow character already points diagonally */
+    from { transform: translate(0, 0) rotate(180deg); }
+    to   { transform: translate(100px, 100px) rotate(340deg); }
 }
 
 
@@ -156,12 +174,12 @@ body {
     font-weight: 600;
 }
 
-/* bottom-centered link shown at page bottom */
+/* bottom-left link shown at page bottom */
 .bottom-link {
     position: fixed;
     bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 25px; /* align to left edge */
+    transform: none;
     /* plain text link, no button styling */
     color: white;
     text-decoration: underline;
@@ -237,7 +255,7 @@ body {
     }
 
     .card {
-        max-width: 90px;
+        max-width: 95px;
         flex: 0 0 auto;
         padding: 18px;
         max-height: 140px;
