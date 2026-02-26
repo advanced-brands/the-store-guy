@@ -118,7 +118,7 @@ body {
 
 /* animated arrow pointing at WhatsApp button */
 .whatsapp-arrow {
-    font-size: 7.5rem;
+    font-size: 3rem;
     display: inline-block;
     color: #0B1C2D;
     animation: arrow-bounce 1s infinite alternate;
