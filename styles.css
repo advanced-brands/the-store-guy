@@ -106,7 +106,8 @@ body {
 
 /* hero image link */
 .hero-image-link img {
-    min-width: 350px;
+    width: 100%;
+    max-width: 350px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -273,5 +274,65 @@ body {
 
     .footer {
         padding-bottom: 60px; /* ensure footer link isn't flush with edge */
+    }
+}
+
+/* very small phones */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    .section h2 {
+        font-size: 1.2rem;
+    }
+    .card {
+        max-width: 80px;
+        padding: 14px;
+    }
+    .card h3 {
+        font-size: 0.6rem;
+    }
+    .card p {
+        font-size: 0.5rem;
+    }
+}
+
+/* tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .floating-container {
+        width: 85%;
+        padding: 50px 30px;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .section h2 {
+        font-size: 1.7rem;
+    }
+    /* revert mobile flex grid to a 2‑column layout */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        margin: 0 auto;               /* keep grid centered inside container */
+        justify-items: center;        /* ensure cards align center if they don't stretch */
+    }
+    .card {
+        width: 100%;                  /* let cards fill their grid cell */
+        max-width: 320px;             /* optional cap for readability */
+        padding: 22px;
+    }
+    .hero-image-link img {
+        max-width: 100%;
+        height: auto;
+    }
+    .nav-links a {
+        font-size: 1rem;
+        margin-left: 20px;
+    }
+    /* slightly increase counter spacing for tablets */
+    .stats {
+        gap: 30px;
+        font-size: 1rem;
     }
 }
