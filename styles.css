@@ -5,39 +5,34 @@
 }
 
 body {
+    background-color: #dcd8cf;
     font-family: 'Inter', sans-serif;
-    background: radial-gradient(circle at top left, #0D273D 0%, #04293b 70%);
     color: #0B1C2D;
 }
 
 /* NAVBAR */
 .navbar {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70%;
-    max-width: 1000px;
-    padding: 14px 28px;
-
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 15px 35px;
+    color: #2e4569;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    /* match body gradient but with transparency so background shows through */
-    background: rgba(11,28,45,0.75);
+   
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
 
     box-shadow: 0 20px 50px rgba(0,0,0,0.35);
     z-index: 1000;
 }
 
 .logo img {
-    max-height: 60px;
+    max-height: 50px;
     display: block;
 }
 
@@ -46,22 +41,13 @@ body {
 .nav-links a {
     margin-left: 25px;
     text-decoration: none;
-    color: white;
+    color: #2e4569;
     font-weight: 500;
 }
 
 
 
-/* FLOATING CONTAINER */
-.floating-container {
-    width: 92%;
-    max-width: 1000px;
-    margin: 120px auto 80px auto;
-    background: #acc4d4;
-    border-radius: 28px;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.4);
-    padding: 60px 40px;
-}
+
 
 /* SECTIONS */
 .section {
@@ -69,9 +55,37 @@ body {
     text-align: center;
 }
 
+/* CONTENT CONTAINER */
+.content-container {
+    width: 75%;
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 0 40px;
+}
+
+.hero {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
 .hero h1 {
     font-family: 'Poppins', sans-serif;
-    font-size: 2.3rem;
+    font-size: 3.2rem;
     margin-bottom: 20px;
 }
 
@@ -85,6 +99,11 @@ body {
     max-width: 650px;
     margin: 0 auto 30px auto;
     line-height: 1.6;
+}
+
+.hero-content p {
+    margin: 0 0 30px 0;
+    font-size: 1.1rem;
 }
 
 /* GRID */
@@ -107,7 +126,7 @@ body {
 /* hero image link */
 .hero-image-link img {
     width: 100%;
-    max-width: 350px;
+    max-width: 900px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -117,29 +136,15 @@ body {
     display: inline-block;
 }
 
-/* animated arrow pointing at WhatsApp button */
-.whatsapp-arrow {
-    font-size: 3rem;
-    display: inline-block;
-    color: #0B1C2D;
-    animation: arrow-bounce 1s infinite alternate;
-    padding: 0px;
-}
-
-@keyframes arrow-bounce {
-    /* no rotation, arrow character already points diagonally */
-    from { transform: translate(0, 0) rotate(180deg); }
-    to   { transform: translate(100px, 100px) rotate(340deg); }
-}
-
 
 /* STATS */
 .stats {
-    margin-top: 25px;
+    margin-top: 0;
     display: flex;
     justify-content: center;
     gap: 40px;
     font-weight: 600;
+    font-size: 1.1rem;
 }
 
 /* WHATSAPP */
@@ -155,6 +160,22 @@ body {
     font-weight: 600;
 }
 
+.whatsapp-button {
+    background: #25D366;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background: #1da851;
+}
+
 /* bottom-left link shown at page bottom */
 .bottom-link {
     position: fixed;
@@ -162,7 +183,7 @@ body {
     left: 25px; /* align to left edge */
     transform: none;
     /* plain text link, no button styling */
-    color: white;
+    color: #2e4569;
     text-decoration: underline;
     font-weight: 600;
     display: none; /* hidden until scrolled to bottom */
@@ -204,11 +225,12 @@ body {
 @media (max-width: 768px) {
     body {
     font-family: 'Inter', sans-serif;
-    
 }
 
     .navbar {
-        padding: 20px 5%;
+        position: sticky;
+        top: 0;
+        padding: 15px 5%;
         /* keep row layout like desktop */
     }
 
@@ -222,117 +244,149 @@ body {
 
     .nav-links a {
         margin: 0;
-        font-size: 0.9rem; /* slightly smaller text to fit */
+        font-size: 0.8rem; /* slightly smaller text to fit */
     }
 
-    .floating-container {
-        padding: 40px 20px;
+    .content-container {
+        width: 95%;
+        padding: 0 15px;
+        margin: 20px auto;
     }
 
-    /* on mobile, keep cards in a horizontal row with scrolling */
-    .grid {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        gap: 10px;
-        overflow-x: auto;
-        padding-bottom: 10px; /* give room for scrollbar */
-    }
-
-    .card {
-        max-width: 95px;
-        flex: 0 0 auto;
-        padding: 18px;
-        max-height: 140px;
-    }
-
-    .card h3 {
-        font-size: 0.7rem;
-    }
-
-    .card p {
-        font-size: 0.6rem;
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
     }
 
     .hero h1 {
         font-size: 1.8rem;
+        margin-bottom: 15px;
     }
 
     .section h2 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+        margin: 0 0 20px 0;
     }
 
     .stats {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
+        font-size: 0.85rem;
     }
 
-    /* make space between footer content and the floating WhatsApp on small screens */
-    .whatsapp {
-        bottom: 60px; /* lift button above footer */
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-top: 20px;
     }
 
-    .footer {
-        padding-bottom: 60px; /* ensure footer link isn't flush with edge */
+    .card {
+        padding: 20px;
+    }
+
+    .card h3 {
+        font-size: 0.9rem;
+    }
+
+    .card p {
+        font-size: 0.8rem;
+    }
+
+    .hero-image-link img {
+        max-width: 400px;
+    }
+
+    .whatsapp-button {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        margin-top: 15px;
     }
 }
 
 /* very small phones */
 @media (max-width: 480px) {
+    .content-container {
+        width: 98%;
+        padding: 0 10px;
+        margin: 15px auto;
+    }
+
     .hero h1 {
         font-size: 1.5rem;
     }
+
     .section h2 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
+
+    .hero-content p {
+        font-size: 0.8rem;
+    }
+
+    .stats {
+        gap: 10px;
+        font-size: 0.75rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
     .card {
-        max-width: 80px;
-        padding: 14px;
+        padding: 15px;
     }
+
     .card h3 {
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
+
     .card p {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
+    }
+
+    .hero-image-link img {
+        max-width: 350px;
+    }
+
+    .whatsapp-button {
+        padding: 8px 16px;
+        font-size: 0.75rem;
     }
 }
 
 /* tablets */
 @media (min-width: 769px) and (max-width: 1024px) {
-    .floating-container {
+    .content-container {
         width: 85%;
-        padding: 50px 30px;
+        padding: 0 30px;
     }
+
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
+
     .section h2 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
     }
-    /* revert mobile flex grid to a 2‑column layout */
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-        margin: 0 auto;               /* keep grid centered inside container */
-        justify-items: center;        /* ensure cards align center if they don't stretch */
-    }
-    .card {
-        width: 100%;                  /* let cards fill their grid cell */
-        max-width: 320px;             /* optional cap for readability */
-        padding: 22px;
-    }
-    .hero-image-link img {
-        max-width: 100%;
-        height: auto;
-    }
-    .nav-links a {
+
+    .hero-content p {
         font-size: 1rem;
-        margin-left: 20px;
     }
-    /* slightly increase counter spacing for tablets */
+
     .stats {
         gap: 30px;
         font-size: 1rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
     }
 }
